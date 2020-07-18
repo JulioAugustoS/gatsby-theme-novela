@@ -108,6 +108,7 @@ module.exports = ({
                 allArticle(sort: {order: DESC, fields: date}) {
                   edges {
                     node {
+                      id
                       body
                       excerpt
                       date
@@ -121,11 +122,12 @@ module.exports = ({
               }
               `
                 : !local && contentful
-                ? `
+                  ? `
               {
                 allContentfulArticle(sort: {order: DESC, fields: date}) {
                   edges {
                     node {
+                      id
                       excerpt
                       date
                       slug
@@ -144,11 +146,12 @@ module.exports = ({
                 }
               }
               `
-                : `
+                  : `
               {
                 allArticle(sort: {order: DESC, fields: date}) {
                   edges {
                     node {
+                      id
                       body
                       excerpt
                       date
@@ -162,6 +165,7 @@ module.exports = ({
                 allContentfulArticle(sort: {order: DESC, fields: date}) {
                   edges {
                     node {
+                      id
                       excerpt
                       date
                       slug
