@@ -5,6 +5,7 @@ const siteMetadata = {
   name: `Narative`,
   siteUrl: `https://novela.narative.co`,
   description: `This is my description that will be used in the meta tags and important for search results`,
+  disqusShortname: `julioaugustodev`,
   hero: {
     heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
     maxWidth: 652,
@@ -60,7 +61,7 @@ const plugins = [
       rootPath: "/",
       basePath: "/",
       authorsPage: true,
-      mailchimp: true,
+      mailchimp: false,
       sources: {
         local: true,
         contentful: false,

@@ -83,7 +83,7 @@ const Article: Template = ({ pageContext, location }) => {
 
   const disqusShortname = results.allSite.edges[0].node.siteMetadata.disqusShortname;
   const disqusConfig = {
-    identifier: article.id,
+    identifier: article.title,
     title: article.title
   };
 
