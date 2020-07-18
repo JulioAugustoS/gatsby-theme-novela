@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
 import { graphql, useStaticQuery } from "gatsby";
-import { DiscussionEmbed } from "disqus-react";
 
 import Layout from "@components/Layout";
 import MDXRenderer from "@components/MDX";
@@ -81,12 +80,6 @@ const Article: Template = ({ pageContext, location }) => {
     return () => window.removeEventListener("resize", calculateBodySize);
   }, []);
 
-  const disqusShortname = results.allSite.edges[0].node.siteMetadata.disqusShortname;
-  const disqusConfig = {
-    identifier: article.title,
-    title: article.title
-  };
-
   return (
     <Layout>
       <ArticleSEO article={article} authors={authors} location={location} />
@@ -103,10 +96,6 @@ const Article: Template = ({ pageContext, location }) => {
         </MDXRenderer>
       </ArticleBody>
       {mailchimp && article.subscription && <Subscription />}
-      <DiscussionEmbed
-        shortname={disqusShortname}
-        config={disqusConfig}
-      />
       {next.length > 0 && (
         <NextArticle narrow>
           <FooterNext>More articles from {name}</FooterNext>
